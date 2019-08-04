@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import FilmList from './components/FilmList';
+import { Input } from 'semantic-ui-react';
+import styled from 'styled-components'
 import './App.css';
 
 const App = () => {
@@ -18,11 +20,17 @@ const App = () => {
       .catch(err => console.log(err))
   }, [films])
 
+  const AppContainer = styled.div`
+    margin: 0 auto;
+  `;
+
   return (
-    <div className="App">
+    <AppContainer>
       <h1 className="Header">React Wars</h1>
-      <FilmList films={films} />
-    </div>
+      <div>
+        <FilmList films={films} />
+      </div>
+    </AppContainer>
   );
 }
 
